@@ -1,0 +1,79 @@
+
+//+------------------------------------------------------------------+
+//|                                                   Luna.mq5       |
+//|                     Copyright 2022, Forex Robot Easy Team        |
+//|                                        https://forexroboteasy.com|
+//+------------------------------------------------------------------+
+
+//+------------------------------------------------------------------+
+//| Expert initialization function                                   |
+//+------------------------------------------------------------------+
+int OnInit()
+{
+    // Initialize Luna Forex
+    // Add necessary initialization code here
+    Print('Luna Forex initialized successfully');
+
+    return(INIT_SUCCEEDED);
+}
+
+//+------------------------------------------------------------------+
+//| Expert start function                                            |
+//+------------------------------------------------------------------+
+void OnTick()
+{
+    // Check if it's a high-impact news event
+    if(IsNewsEvent())
+    {
+        // Do not trade during high-impact news events
+        Print('High-impact news event detected. No trading allowed.');
+        return;
+    }
+
+    // Check for sudden price reversals
+    if(IsMeanReverse())
+    {
+        // Execute trading strategy for Luna Forex
+        ExecuteMeanReverseStrategy();
+    }
+}
+
+//+------------------------------------------------------------------+
+//| Check if it's a high-impact news event                            |
+//+------------------------------------------------------------------+
+bool IsNewsEvent()
+{
+    // Add code to check for high-impact news events
+    // Return true if it's a high-impact news event, false otherwise
+}
+
+//+------------------------------------------------------------------+
+//| Check for sudden price reversals                                 |
+//+------------------------------------------------------------------+
+bool IsMeanReverse()
+{
+    // Add code to check for sudden price reversals
+    // Return true if it's a sudden price reversal, false otherwise
+}
+
+//+------------------------------------------------------------------+
+//| Execute mean-reverse strategy for Luna Forex                     |
+//+------------------------------------------------------------------+
+void ExecuteMeanReverseStrategy()
+{
+    // Add code to execute mean-reverse strategy for Luna Forex
+    // Place trades, set stop loss and take profit levels, etc.
+}
+
+//+------------------------------------------------------------------+
+//| Expert deinitialization function                                 |
+//+------------------------------------------------------------------+
+void OnDeinit(const int reason)
+{
+    // Deinitialize Luna Forex
+    // Add necessary deinitialization code here
+    Print('Luna Forex deinitialized');
+
+    // Print the reason for deinitialization
+    Print('Reason: ', reason);
+}
